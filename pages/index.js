@@ -1,16 +1,31 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '@/styles/Home.module.css';
+import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+import { Inter } from "next/font/google";
+import styles from "@/styles/Home.module.css";
+import { useRouter } from "next/router";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
+  const router = useRouter();
+  const handleClick = () => {
+    router.push("/product");
+  };
   return (
     <>
       <div>
         <header>
-          <nav>Nav component</nav>
+          <nav>
+            Nav component
+            <div>
+              <Link href="/docs">Docs</Link>
+            </div>
+            <div>
+              <Link href="/product">Products</Link>
+            </div>
+            <button onClick={handleClick}>Go to Products page</button>
+          </nav>
         </header>
       </div>
       <main>
