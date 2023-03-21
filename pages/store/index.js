@@ -4,9 +4,11 @@
 
 // export async function getStaticProps() {
 //   await dbConnect();
-//   const items = await Item.find({}).lean();
+//   const res = await Item.find({}).lean();
+//   const data = res.json()
 //   return {
 //     props: { items: JSON.parse(JSON.stringify(items)) },
+//     props: { items: data },
 //   };
 // }
 
