@@ -1,16 +1,16 @@
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
-import { useRouter } from "next/router";
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Inter } from 'next/font/google';
+import styles from '@/styles/Home.module.css';
+import { useRouter } from 'next/router';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const router = useRouter();
   const handleClick = () => {
-    router.push("/product");
+    router.push('/product');
   };
   return (
     <>
@@ -18,6 +18,12 @@ export default function Home() {
         <header>
           <nav>
             Nav component
+            <div>
+              <Link href="/store">Store</Link>
+            </div>
+            <div>
+              <Link href="/users">Users</Link>
+            </div>
             <div>
               <Link href="/docs">Docs</Link>
             </div>
