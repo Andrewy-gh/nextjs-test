@@ -14,7 +14,7 @@ export async function getStaticProps() {
 export default function Store({ items }) {
   return (
     <div>
-      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+      <h1 className="text-3xl font-bold underline">Store</h1>
       <div className="flex justify-center flex-col align-middle">
         {items.map((item) => (
           <div key={item._id}>
