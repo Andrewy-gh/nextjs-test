@@ -3,7 +3,7 @@ import dbConnect from '@/lib/dbConnect';
 import StoreItem from '../../components/item';
 import Item from '@/models/Item';
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   await dbConnect();
   const item = await Item.findOne({ _id: params.itemId }).lean();
 
@@ -20,19 +20,19 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
-  await dbConnect();
-  const items = await Item.find({}).lean();
-  const paths = items.map((item) => ({
-    params: {
-      itemId: item._id.toString(),
-    },
-  }));
-  return {
-    paths,
-    fallback: true,
-  };
-}
+// export async function getStaticPaths() {
+//   await dbConnect();
+//   const items = await Item.find({}).lean();
+//   const paths = items.map((item) => ({
+//     params: {
+//       itemId: item._id.toString(),
+//     },
+//   }));
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
 
 export default function ItemDetail({ item }) {
   const router = useRouter();

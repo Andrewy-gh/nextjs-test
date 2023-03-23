@@ -8,31 +8,10 @@ import { useRouter } from 'next/router';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
-  const router = useRouter();
-  const handleClick = () => {
-    router.push('/product');
-  };
   return (
     <>
       <div>
-        <header>
-          <nav>
-            Nav component
-            <div>
-              <Link href="/store">Store</Link>
-            </div>
-            <div>
-              <Link href="/users">Users</Link>
-            </div>
-            <div>
-              <Link href="/docs">Docs</Link>
-            </div>
-            <div>
-              <Link href="/product">Products</Link>
-            </div>
-            <button onClick={handleClick}>Go to Products page</button>
-          </nav>
-        </header>
+        <header></header>
       </div>
       <main>
         {/* Hero */}

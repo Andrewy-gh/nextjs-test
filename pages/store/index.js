@@ -3,7 +3,7 @@ import dbConnect from '../../lib/dbConnect';
 import Item from '../../models/Item';
 import StoreItem from '../../components/item';
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   await dbConnect();
   const items = await Item.find({}).lean();
   return {

@@ -7,6 +7,7 @@ export default function StoreItem({ item }) {
       <Link href={`store/${item._id}`}>
         <div>{item.name}</div>
         <Image
+          priority
           src={item.image}
           alt={item.name}
           height={100}
