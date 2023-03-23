@@ -8,7 +8,7 @@ export async function getServerSideProps({ params }) {
   const item = await Item.findOne({ _id: params.itemId }).lean();
 
   // returns constant 404 page
-  if (!item._id) {
+  if (!item) {
     return {
       notFound: true,
     };
@@ -35,11 +35,11 @@ export async function getServerSideProps({ params }) {
 // }
 
 export default function ItemDetail({ item }) {
-  const router = useRouter();
+  // const router = useRouter();
 
-  if (router.isFallback) {
-    return <h1>Loading...</h1>;
-  }
+  // if (router.isFallback) {
+  //   return <h1>Loading...</h1>;
+  // }
   return (
     <>
       <StoreItem item={item} />
