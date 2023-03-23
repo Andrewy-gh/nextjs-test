@@ -1,13 +1,13 @@
 import useSWR from 'swr';
 
 const fetcher = (url) =>
-  fetch(url, { method: 'GET' })
+  fetch(url)
     .then((res) => res.json())
     .then((json) => json.data);
 
 export default function Dashboard() {
+  // input real id
   const { data, error } = useSWR('/api/users/fakeId', fetcher);
-  console.log({ data, error });
 
   if (error) return 'An error has occured';
   if (!data) return 'Loading';
