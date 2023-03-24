@@ -1,16 +1,15 @@
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { signIn, signOut, useSession } from 'next-auth/react';
-import styles from './Navbar.module.css';
+import styles from './navbar.module.css';
 
 export default function NavBar() {
+  const router = useRouter();
   const { data: session, status } = useSession();
-  console.log(session, status);
   return (
     <nav>
       <div className="flex gap-1">
-        <Link href="/" className="test">
-          Home
-        </Link>
+        <Link href="/">Home</Link>
         <Link href="/store">Store</Link>
         <Link href="/users">Users</Link>
         <Link href="/docs">Docs</Link>
@@ -29,15 +28,19 @@ export default function NavBar() {
             Login
           </Link>
         ) : (
-          <Link
-            href="/api/auth/signout"
-            onClick={(e) => {
-              e.preventDefault();
-              signOut();
-            }}
-          >
-            Logout
-          </Link>
+          <>
+            <Link href="/profile">Profile</Link>
+            <Link
+              href="/api/auth/signout"
+              onClick={(e) => {
+                e.preventDefault();
+                signOut();
+                router.push('/');
+              }}
+            >
+              Logout
+            </Link>
+          </>
         )}
         <Link href="/dashboard">Dashboard</Link>
       </div>

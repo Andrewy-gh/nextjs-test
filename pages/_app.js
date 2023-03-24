@@ -1,7 +1,7 @@
 import { SessionProvider } from 'next-auth/react';
 import '@/styles/globals.css';
 import Head from 'next/head';
-import NavBar from '@/components/Navbar';
+import NavBar from '@/components/navbar';
 
 export default function App({
   Component,
