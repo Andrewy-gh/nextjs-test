@@ -1,4 +1,5 @@
 import { SessionProvider } from 'next-auth/react';
+import { StateProvider } from '@/context/AppContext';
 import '@/styles/globals.css';
 import Head from 'next/head';
 import NavBar from '@/components/navbar';
@@ -9,15 +10,13 @@ export default function App({
 }) {
   return (
     <SessionProvider session={session}>
-      <Head>
-        <title>Plant Store</title>
-      </Head>
-      <div>
+      <StateProvider>
+        <Head>
+          <title>Plant Store</title>
+        </Head>
         <NavBar />
-      </div>
-      <div>
         <Component {...pageProps} />
-      </div>
+      </StateProvider>
     </SessionProvider>
   );
 }
